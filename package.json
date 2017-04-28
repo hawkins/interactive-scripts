@@ -29,6 +29,7 @@
   "homepage": "https://github.com/hawkins/npm-script-runner#readme",
   "dependencies": {
     "inquirer": "^3.0.6",
+    "npm-run-all": "^4.0.2",
     "read-package-json": "^2.0.5"
   }
 }

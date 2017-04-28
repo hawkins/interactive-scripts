@@ -1,7 +1,7 @@
 #! /usr/bin/env node
 var readJson = require('read-package-json');
 var inquirer = require('inquirer');
-var { execSync } = require('child_process');
+var runAll = require('npm-run-all');
 var path = require('path');
 
 readJson(
@@ -31,12 +31,17 @@ function promptUser(err, data) {
       message: 'Select an npm script to run',
       choices
     })
-    .then(runScript);
+    .then(runScript)
+    .catch(console.error);
 }
 
 function runScript(val) {
   const script = val.theme;
-  try {
-    execSync(`npm run ${script}`);
-  } catch (e) {}
+
+  runAll(script, {
+    stdout: process.stdout,
+    stderr: process.stderr
+  }).catch(() => {
+    // Do nothing
+  });
 }
