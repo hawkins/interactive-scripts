@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/hawkins/npm-script-runner.git"
+    "url": "git+https://github.com/hawkins/interactive-scripts.git"
   },
   "keywords": [
     "npm",
@@ -24,9 +24,9 @@
   "author": "Josh Hawkins <hawkinswritescode@gmail.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/hawkins/npm-script-runner/issues"
+    "url": "https://github.com/hawkins/interactive-scripts/issues"
   },
-  "homepage": "https://github.com/hawkins/npm-script-runner#readme",
+  "homepage": "https://github.com/hawkins/interactive-scripts#readme",
   "dependencies": {
     "inquirer": "^3.0.6",
     "npm-run-all": "^4.0.2",
