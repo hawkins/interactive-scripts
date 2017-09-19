@@ -1,6 +1,6 @@
 {
   "name": "interactive-scripts",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Interactive script runner for npm",
   "main": "index.js",
   "bin": {
