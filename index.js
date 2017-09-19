@@ -1,11 +1,11 @@
 #! /usr/bin/env node
-var readJson = require('read-package-json');
-var inquirer = require('inquirer');
-var runAll = require('npm-run-all');
-var path = require('path');
+var readJson = require("read-package-json");
+var inquirer = require("inquirer");
+var runAll = require("npm-run-all");
+var path = require("path");
 
 readJson(
-  path.join(process.cwd(), 'package.json'),
+  path.join(process.cwd(), "package.json"),
   console.error,
   false,
   promptUser
@@ -13,7 +13,9 @@ readJson(
 
 function promptUser(err, data) {
   if (err) {
-    throw err;
+    console.error("An error occurred reading package.json!\n---");
+    console.error(err.toString());
+    process.exit(1);
   }
 
   // Collect scripts
@@ -23,12 +25,15 @@ function promptUser(err, data) {
     value: key
   }));
 
+  // Print the number of scripts
+  console.log("Found " + choices.length + " scripts");
+
   // Prompt user
   inquirer
     .prompt({
-      type: 'list',
-      name: 'theme',
-      message: 'Select an npm script to run',
+      type: "list",
+      name: "theme",
+      message: "Select a script to run",
       choices
     })
     .then(runScript)
